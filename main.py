@@ -1,5 +1,6 @@
 import sys
-from PyQt6.QtWidgets import QMainWindow,QApplication,QDialog,QVBoxLayout,QLabel,QButtonGroup,QRadioButton,QPushButton 
+from PyQt6.QtWidgets import QMainWindow,QApplication,QDialog,QVBoxLayout,QLabel,QButtonGroup,QRadioButton,QPushButton
+from PyQt6.QtGui import QIcon
 from validators import url
 from PyQt6.QtCore import Qt,QThread, pyqtSignal
 import time
@@ -86,6 +87,8 @@ class MyMainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self,parent =None):
         super(MyMainWindow,self).__init__(parent)
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon("logo.ico"))
 
         aria2 = aria2p.API(
             aria2p.Client(
